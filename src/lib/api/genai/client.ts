@@ -1,14 +1,14 @@
 import createClient from 'openapi-fetch';
-import { apiConfig } from '../config/api';
-import type { paths } from './types';
+import { apiConfig } from '../../config/api';
+import type { paths } from '../types';
 
 // Create the API client with base configuration
-export const client = createClient<paths>({
-	baseUrl: apiConfig.baseUrl
+export const genAIClient = createClient<paths>({
+	baseUrl: apiConfig.genAIAPIUrl
 });
 
 // Optional: Add global request/response interceptors
-client.use({
+genAIClient.use({
 	onRequest({ request }) {
 		// Add auth headers, logging, etc.
 		console.log('API Request:', request.method, request.url);
@@ -21,4 +21,4 @@ client.use({
 	}
 });
 
-export default client;
+export default genAIClient;

@@ -1,1 +1,0 @@
-function loadNote(id: number) {}

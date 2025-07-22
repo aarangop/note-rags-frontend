@@ -1,5 +1,5 @@
 // Export API client and services
-export { client } from './client';
+export { genAIClient as client } from './genai/client';
 export * from './queries';
 
 // Export types

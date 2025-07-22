@@ -1,5 +1,5 @@
 import { apiConfig } from '../config/api';
-import { client } from './client';
+import { genAIClient } from './genai/client';
 
 export interface QueryRequest {
 	question: string;
@@ -24,7 +24,7 @@ export interface StreamChunk {
  * Submit a query to the API (non-streaming)
  */
 export async function submitQuery(query: string): Promise<QueryResponse> {
-	const { data, error } = await client.POST('/queries/', {
+	const { data, error } = await genAIClient.POST('/queries/', {
 		body: {
 			question: query
 		}
@@ -47,7 +47,7 @@ export async function submitQueryStream(
 	onError?: (error: string) => void
 ): Promise<void> {
 	try {
-		const response = await fetch(`${apiConfig.baseUrl}/queries/streams`, {
+		const response = await fetch(`${apiConfig.genAIAPIUrl}/queries/streams`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export async function submitQueryStream(
  * Get health status of the API
  */
 export async function getHealth(): Promise<{ status: string }> {
-	const { data, error } = await client.GET('/health');
+	const { data, error } = await genAIClient.GET('/health');
 
 	if (error) {
 		throw new Error(`API Error: ${JSON.stringify(error)}`);
