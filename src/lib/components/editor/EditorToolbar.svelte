@@ -103,7 +103,6 @@
 			active={editorState.isH1}
 			onclick={() => onHeading(1)}
 			title="Heading 1"
-			variant="primary"
 			disabled={false}
 		/>
 		<IconButton
@@ -111,7 +110,6 @@
 			active={editorState.isH2}
 			onclick={() => onHeading(2)}
 			title="Heading 2"
-			variant="primary"
 		/>
 		<IconButton
 			icon={Heading3}
