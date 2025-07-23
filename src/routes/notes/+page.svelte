@@ -1,5 +1,5 @@
 <script lang="ts">
-	import NoteEditor from '$lib/components/editor/NoteEditor.svelte';
+	let { data } = $props();
 </script>
 
 <svelte:head>
@@ -8,5 +8,8 @@
 </svelte:head>
 
 <div class="mx-auto flex h-screen max-w-4xl flex-col px-4 pt-4 pb-4 sm:px-6 lg:px-8">
-	<NoteEditor fileName="Sample File"></NoteEditor>
+	<h1>Notes Dashboard</h1>
+	{#if data.items}
+		<span>{data.total} notes in my vault!</span>
+	{/if}
 </div>

@@ -1,9 +1,13 @@
-<script>
-	import { Meta, Story } from '@storybook/addon-svelte-csf';
+<script module>
+	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import StatusIndicator from './StatusIndicator.svelte';
-</script>
 
-<Meta title="Components/UI/StatusIndicator" component={StatusIndicator} />
+	const { Story } = defineMeta({
+		title: 'Components/UI/StatusIndicator',
+		component: StatusIndicator,
+		tags: ['autodocs']
+	});
+</script>
 
 <Story name="Healthy API">
 	<StatusIndicator
